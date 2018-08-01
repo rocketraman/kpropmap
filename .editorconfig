@@ -1,0 +1,33 @@
+# EditorConfig: http://EditorConfig.org
+
+root = true
+
+[*.{java,scala,kt}]
+charset = utf-8
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.{xml,yml}]
+charset = utf-8
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.adoc]
+charset = utf-8
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.proto]
+charset = utf-8
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[{build.gradle,*.gradle}]
+charset = utf-8
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true

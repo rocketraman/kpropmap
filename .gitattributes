@@ -1,0 +1,4 @@
+*.bat eol=crlf
+MANIFEST.MF eol=crlf
+*.java diff=java
+*.kt diff=kotlin
