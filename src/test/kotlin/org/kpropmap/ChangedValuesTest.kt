@@ -271,7 +271,7 @@ class ChangedValuesTest {
       fail("This should not execute")
     }
 
-    var lambdaRan = false
+    var lambdaRan: Boolean
     input.withChanged(SimpleNullable::s, SimpleNullable("foo")).let {
       lambdaRan = true
       assertThat(it, absent())
@@ -290,7 +290,7 @@ class ChangedValuesTest {
       fail("This should not execute")
     }
 
-    var lambdaRan = false
+    var lambdaRan: Boolean
     input.withChanged(SimpleNullable::s, { "foo" }).let {
       lambdaRan = true
       assertThat(it, absent())

@@ -61,6 +61,14 @@ If the keys are `KProperty` instances, the key is automatically converted to the
 propMapOf(MyDataClass::foo to "bar")
 ```
 
+Or one can also be created from an existing data class via reflection:
+
+```kotlin
+data class Foo(val a: Int, val b: Int)
+val foo = Foo(...)
+val p = propMapOf(foo)
+```
+
 ### Using a Property Map
 
 #### Property Maps are Maps

@@ -9,6 +9,21 @@ import org.kpropmap.test.ParameterizedValuesDouble
 
 class DoublesTest {
   @Test
+  fun `Data class with doubles is serialized and deserialized`() {
+    val input = propMapOf(
+      DoubleValues::val1 to 10.0,
+      DoubleValues::val2 to 20.0,
+      DoubleValues::val3 to 30.0
+    )
+
+    val doubleValues = input.deserialize<DoubleValues>()
+    assertThat(doubleValues, equalTo(DoubleValues(10.0, 20.0, 30.0)))
+
+    val output = propMapOf(doubleValues)
+    assertThat(input, equalTo(output))
+  }
+
+  @Test
   fun `Doubles are parsed from standard number representations`() {
     val input = propMapOf(
       DoubleValues::val1 to 10.0,

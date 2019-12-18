@@ -12,6 +12,7 @@ import java.util.*
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 import kotlin.reflect.KType
+import kotlin.reflect.full.memberProperties
 import kotlin.reflect.jvm.javaType
 
 /**
@@ -204,6 +205,13 @@ fun <K: Any, V: Any?> propMapOf(map: Map<K, V>): PropertyMap = PropertyMap().app
 
 fun <K: Any, V: Any?> propMapOf(vararg pairs: Pair<K, V>): PropertyMap = PropertyMap().apply {
   putAll(applyConversions(pairs.toMap()))
+}
+
+inline fun <reified T: Any> propMapOf(type: T): PropertyMap = propMapOf(type.asMap())
+
+inline fun <reified T: Any> T.asMap(): Map<String, Any?> {
+  val props = T::class.memberProperties.associateBy { it.name }
+  return props.keys.associateWith { props[it]?.get(this) }
 }
 
 /** Simple conversion of a typed value map to a JSON value map (used only when creating property maps, not parsing them). */
