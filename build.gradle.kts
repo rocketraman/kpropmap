@@ -1,26 +1,26 @@
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
-  kotlin("jvm") version "1.2.51"
-  id("org.jetbrains.dokka") version "0.9.16"
+  kotlin("jvm") version "1.3.61"
+  id("org.jetbrains.dokka") version "0.10.0"
   `maven-publish`
 }
 
 group = "org.kpropmap"
-version = "0.0.1"
+version = "0.0.2"
 
 repositories {
   jcenter()
 }
 
 dependencies {
-  implementation(kotlin("stdlib", "1.2.51"))
-  implementation(kotlin("reflect", "1.2.51"))
+  implementation(kotlin("stdlib", "1.3.61"))
+  implementation(kotlin("reflect", "1.3.61"))
 
   // testing
-  testImplementation("com.natpryce:hamkrest:1.4.2.2")
-  testImplementation("org.junit.jupiter:junit-jupiter-api:5.2.0")
-  testImplementation("org.junit.jupiter:junit-jupiter-engine:5.2.0")
+  testImplementation("com.natpryce:hamkrest:1.7.0.0")
+  testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
+  testImplementation("org.junit.jupiter:junit-jupiter-engine:5.5.2")
 }
 
 // Configure existing Dokka task to output HTML to typical Javadoc directory
@@ -43,9 +43,19 @@ val sourcesJar by tasks.creating(Jar::class) {
   group = JavaBasePlugin.DOCUMENTATION_GROUP
   description = "Assembles sources JAR"
   classifier = "sources"
-  from(java.sourceSets["main"].allSource)
+  from(sourceSets["main"].allSource)
 }
 
+artifacts {
+  add("archives", sourcesJar)
+  add("archives", dokkaJar)
+}
+
+tasks {
+  "test"(Test::class) {
+    useJUnitPlatform()
+  }
+}
 /*
 publishing {
   publications {
