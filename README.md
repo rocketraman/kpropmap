@@ -1,5 +1,8 @@
 # kpropmap
 
+[![Bintray](https://img.shields.io/bintray/v/rocketraman/maven/kpropmap)](https://bintray.com/rocketraman/maven/kpropmap)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.rocketraman/kpropmap)](https://search.maven.org/artifact/com.github.rocketraman/kpropmap)
+
 ## Introduction
 
 Kpropmap is a small Kotlin library that combines benefits from untyped and unstructured data like `Map`s, with
