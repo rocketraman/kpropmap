@@ -1,7 +1,7 @@
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
-  kotlin("jvm") version "1.3.61"
+  kotlin("jvm") version "1.3.71"
   id("org.jetbrains.dokka") version "0.10.0"
   `maven-publish`
 }
@@ -14,8 +14,8 @@ repositories {
 }
 
 dependencies {
-  implementation(kotlin("stdlib", "1.3.61"))
-  implementation(kotlin("reflect", "1.3.61"))
+  implementation(kotlin("stdlib", "1.3.71"))
+  implementation(kotlin("reflect", "1.3.71"))
 
   // testing
   testImplementation("com.natpryce:hamkrest:1.7.0.0")
